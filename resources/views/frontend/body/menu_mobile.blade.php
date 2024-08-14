@@ -5,12 +5,12 @@
     <h6>Menu</h6>
     <div class="mr_navmenu"></div> <!-- Keep this div empty. Menu will come here by JavaScript -->
 
-    <h6>Contact Us</h6>
+    <h6>Contact</h6>
     <div class="wptb-icon-box1 style2">
         <div class="wptb-item--inner flex-start">
             <div class="wptb-item--icon"><i class="bi bi-envelope"></i></div>
             <div class="wptb-item--holder">
-                <p class="wptb-item--description"><a href="mailto:kimocare@gmail.com">kimocare@gmail.com</a></p>
+                <p class="wptb-item--description"><a href="mailto:kimocare@gmail.com">contact@madiyanv.com</a></p>
             </div>
         </div>
     </div>
@@ -19,7 +19,7 @@
         <div class="wptb-item--inner flex-start">
             <div class="wptb-item--icon"><i class="bi bi-geo-alt"></i></div>
             <div class="wptb-item--holder">
-                <p class="wptb-item--description"><a href="contact-1.html">28 Street, New York, USA</a></p>
+                <p class="wptb-item--description"><a href="contact-1.html">Dakar, Médina, Saly</a></p>
             </div>
         </div>
     </div>
@@ -28,25 +28,28 @@
         <div class="wptb-item--inner flex-start">
             <div class="wptb-item--icon"><i class="bi bi-envelope"></i></div>
             <div class="wptb-item--holder">
-                <p class="wptb-item--description"><a href="tel:+98765432122811">(+987) 654 321 228 11</a></p>
+                <p class="wptb-item--description"><a href="tel:77000 00 00">(+221) 77000 00 00</a></p>
             </div>
         </div>
     </div>
 
-    <h6>Find Our Page</h6>
+    <h6>Nous Suivres</h6>
     <div class="social-box">
         <ul>
-            <li><a href="https://www.facebook.com/"><i class="bi bi-facebook"></i></a></li>
             <li><a href="https://www.instagram.com/"><i class="bi bi-instagram"></i></a></li>
-            <li><a href="https://www.linkedin.com/"><i class="bi bi-linkedin"></i></a></li>
-            <li><a href="https://www.behance.com/"><i class="bi bi-behance"></i></a></li>
+            <li><a href="https://www.facebook.com/"><i class="bi bi-facebook"></i></a></li>
             <li><a href="https://www.youtube.com/"><i class="bi bi-youtube"></i></a></li>
+            <li><a href="https://www.youtube.com/"><i class="bi bi-tiktok"></i></a></li>
+            <li><a href="https://www.linkedin.com/"><i class="bi bi-linkedin"></i></a></li>
+           
+            
+            
         </ul>
     </div>
 </div>
 
 <div class="aside_info_wrapper" data-lenis-prevent>
-    <button class="aside_close">Close <i class="bi bi-x-lg"></i></button>
+    <button class="aside_close">Fermer <i class="bi bi-x-lg"></i></button>
 
     <div class="aside_logo logo">
         <a href="index.html" class="light_logo"><img src="../assets/img/logo.svg" alt="logo"></a>
