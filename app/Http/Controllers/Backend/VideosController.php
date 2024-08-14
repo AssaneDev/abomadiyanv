@@ -22,42 +22,30 @@ class VideosController extends Controller
 
    
     
-    public function StoreVideo(Request $request)
-    {
-        // Valider le fichier vidéo
-        $request->validate([
-            'video' => 'required|mimes:mp4,mov,ogg,qt|max:20000', // Max 20MB
-        ]);
+   
+     public function StoreVideo(Request $request){
+            $vid = $request->file('video');
+            
+            $name_gen = hexdec(uniqid()).'.'.$vid->getClientOriginalExtension();
+            $vid->storeAs('upload/video', $name_gen, 'public');
+            $path = 'upload/video';
+            $vid->move($path, $name_gen);
+            $save_url = 'upload/video/'.$name_gen;
     
-        // Obtenir le fichier vidéo
-        $vid = $request->file('video');
+            Video::insert([
+                
+                'video'=>$save_url,
+                'created_at'=>Carbon::now(),
     
-        // Générer un nom unique pour la vidéo
-        $name_gen = hexdec(uniqid()).'.'.$vid->getClientOriginalExtension();
-    
-        // Chemin où la vidéo sera sauvegardée
-        $save_path = public_path('upload/video');
-    
-        // Vérifier si le dossier existe, sinon le créer
-        if (!file_exists($save_path)) {
-            mkdir($save_path, 0777, true);
-        }
-    
-        // Tenter de déplacer la vidéo
-        try {
-            $vid->move($save_path, $name_gen);
-        } catch (\Exception $e) {
-            return back()->withErrors(['error' => 'Failed to save the video: '.$e->getMessage()]);
-        }
-    
-        // Enregistrer le chemin de la vidéo dans la base de données
-        Video::insert([
-            'video' => 'upload/video/'.$name_gen,
-            'created_at' => Carbon::now(),
-        ]);
-    
-        return redirect()->back()->with('success', 'Vidéo sauvegardée avec succès.');
+            ]);
+          
+            return redirect()->back();
     }
+
+
+
+
+
     
 
     
