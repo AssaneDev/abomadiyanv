@@ -24,17 +24,17 @@ class VideosController extends Controller
     
    
      public function StoreVideo(Request $request){
-            $vid = $request->file('video');
+            // $vid = $request->file('video');
             
-            $name_gen = hexdec(uniqid()).'.'.$vid->getClientOriginalExtension();
-            $vid->storeAs('upload/video', $name_gen, 'public');
-            $path = 'upload/video';
-            $vid->move($path, $name_gen);
-            $save_url = 'upload/video/'.$name_gen;
+            // $name_gen = hexdec(uniqid()).'.'.$vid->getClientOriginalExtension();
+            // $vid->storeAs('upload/video', $name_gen, 'public');
+            // $path = 'upload/video';
+            // $vid->move($path, $name_gen);
+            // $save_url = 'upload/video/'.$name_gen;
     
             Video::insert([
                 
-                'video'=>$save_url,
+                'video'=>$request->lien,
                 'created_at'=>Carbon::now(),
     
             ]);

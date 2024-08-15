@@ -1,454 +1,221 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-
-	<title>Dasho - Bootstrap 5 Admin Template</title>
-	<!-- HTML5 Shim and Respond.js IE11 support of HTML5 elements and media queries -->
-	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-	<!--[if lt IE 11]>
-		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-		<![endif]-->
-	<!-- Meta -->
+	<!-- Required meta tags -->
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="description"
-		content="Dasho Bootstrap admin template made using Bootstrap 5 and it has huge amount of ready made feature, UI components, pages which completely fulfills any dashboard needs." />
-	<meta name="keywords"
-		content="admin templates, bootstrap admin templates, bootstrap 5, dashboard, dashboard templets, sass admin templets, html admin templates, responsive, bootstrap admin templates free download,premium bootstrap admin templates, Dasho, Dasho bootstrap admin template">
-	<meta name="author" content="Phoenixcoded" />
-
-	<!-- Favicon icon -->
-	<link rel="icon" href=" {{asset('backend/assets/images/favicon.svg')}} " type="image/x-icon">
-	<!-- fontawesome icon -->
-	<link rel="stylesheet" href=" {{asset('backend/assets/fonts/fontawesome/css/fontawesome-all.min.css')}} ">
-	<!-- animation css -->
-	<link rel="stylesheet" href=" {{asset('backend/assets/plugins/animation/css/animate.min.css')}} ">
-
-	<!-- notification css -->
-	<link rel="stylesheet" href=" {{asset('backend/assets/plugins/notification/css/notification.min.css')}} ">
-
-	<!-- vendor css -->
-	<link rel="stylesheet" href=" {{asset('backend/assets/css/style.css')}} ">
-
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--favicon-->
+	<link rel="icon" href=" {{asset('back/assets/images/favicon-32x32.png')}} " type="image/png"/>
+	<!--plugins-->
+	<link href=" {{asset('back/assets/plugins/vectormap/jquery-jvectormap-2.0.2.css')}} " rel="stylesheet"/>
+	<link href=" {{asset('back/assets/plugins/simplebar/css/simplebar.css')}} " rel="stylesheet" />
+	<link href=" {{asset('back/assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css')}} " rel="stylesheet" />
+	<link href=" {{asset('back/assets/plugins/metismenu/css/metisMenu.min.css')}} " rel="stylesheet"/>
+	<!-- loader-->
+	<link href=" {{asset('back/assets/css/pace.min.css')}} " rel="stylesheet"/>
+	<script src=" {{asset('back/assets/js/pace.min.js')}} "></script>
+	<!-- Bootstrap CSS -->
+	<link href=" {{asset('back/assets/css/bootstrap.min.css')}} " rel="stylesheet">
+	<link href=" {{asset('back/assets/css/bootstrap-extended.css')}} " rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+	<link href=" {{asset('back/assets/css/app.css')}} " rel="stylesheet">
+	<link href=" {{asset('back/assets/css/icons.css')}} " rel="stylesheet">
+	<!-- Theme Style CSS -->
+	<link rel="stylesheet" href=" {{asset('back/assets/css/dark-theme.css')}} "/>
+	<link rel="stylesheet" href=" {{asset('back/assets/css/semi-dark.css')}} "/>
+	<link rel="stylesheet" href=" {{asset('back/assets/css/header-colors.css')}} "/>
+	<title>Rocker - Bootstrap 5 Admin Dashboard Template</title>
 </head>
 
-<body class="">
-	<!-- [ Pre-loader ] start -->
-	<div class="loader-bg">
-		<div class="loader-track">
-			<div class="loader-fill"></div>
+<body>
+	<!--wrapper-->
+	<div class="wrapper">
+		<!--sidebar wrapper -->
+		@include('admin.body.sidebar')
+		<!--end sidebar wrapper -->
+		<!--start header -->
+		@include('admin.body.header')
+		<!--end header -->
+		<!--start page wrapper -->
+		<div class="page-wrapper">
+			@yield('admin')
+		</div>
+		<!--end page wrapper -->
+		<!--start overlay-->
+		 <div class="overlay toggle-icon"></div>
+		<!--end overlay-->
+		<!--Start Back To Top Button-->
+		  <a href="javaScript:;" class="back-to-top"><i class='bx bxs-up-arrow-alt'></i></a>
+		<!--End Back To Top Button-->
+		@include('admin.body.footer')
+	</div>
+	<!--end wrapper-->
+
+
+	<!-- search modal -->
+    <div class="modal" id="SearchModal" tabindex="-1">
+		<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-fullscreen-md-down">
+		  <div class="modal-content">
+			<div class="modal-header gap-2">
+			  <div class="position-relative popup-search w-100">
+				<input class="form-control form-control-lg ps-5 border border-3 border-primary" type="search" placeholder="Search">
+				<span class="position-absolute top-50 search-show ms-3 translate-middle-y start-0 top-50 fs-4"><i class='bx bx-search'></i></span>
+			  </div>
+			  <button type="button" class="btn-close d-md-none" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<div class="search-list">
+				   <p class="mb-1">Html Templates</p>
+				   <div class="list-group">
+					  <a href="javascript:;" class="list-group-item list-group-item-action active align-items-center d-flex gap-2 py-1"><i class='bx bxl-angular fs-4'></i>Best Html Templates</a>
+					  <a href="javascript:;" class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i class='bx bxl-vuejs fs-4'></i>Html5 Templates</a>
+					  <a href="javascript:;" class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i class='bx bxl-magento fs-4'></i>Responsive Html5 Templates</a>
+					  <a href="javascript:;" class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i class='bx bxl-shopify fs-4'></i>eCommerce Html Templates</a>
+				   </div>
+				   <p class="mb-1 mt-3">Web Designe Company</p>
+				   <div class="list-group">
+					  <a href="javascript:;" class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i class='bx bxl-windows fs-4'></i>Best Html Templates</a>
+					  <a href="javascript:;" class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i class='bx bxl-dropbox fs-4' ></i>Html5 Templates</a>
+					  <a href="javascript:;" class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i class='bx bxl-opera fs-4'></i>Responsive Html5 Templates</a>
+					  <a href="javascript:;" class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i class='bx bxl-wordpress fs-4'></i>eCommerce Html Templates</a>
+				   </div>
+				   <p class="mb-1 mt-3">Software Development</p>
+				   <div class="list-group">
+					  <a href="javascript:;" class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i class='bx bxl-mailchimp fs-4'></i>Best Html Templates</a>
+					  <a href="javascript:;" class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i class='bx bxl-zoom fs-4'></i>Html5 Templates</a>
+					  <a href="javascript:;" class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i class='bx bxl-sass fs-4'></i>Responsive Html5 Templates</a>
+					  <a href="javascript:;" class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i class='bx bxl-vk fs-4'></i>eCommerce Html Templates</a>
+				   </div>
+				   <p class="mb-1 mt-3">Online Shoping Portals</p>
+				   <div class="list-group">
+					  <a href="javascript:;" class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i class='bx bxl-slack fs-4'></i>Best Html Templates</a>
+					  <a href="javascript:;" class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i class='bx bxl-skype fs-4'></i>Html5 Templates</a>
+					  <a href="javascript:;" class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i class='bx bxl-twitter fs-4'></i>Responsive Html5 Templates</a>
+					  <a href="javascript:;" class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i class='bx bxl-vimeo fs-4'></i>eCommerce Html Templates</a>
+				   </div>
+				</div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+    <!-- end search modal -->
+
+
+
+
+	<!--start switcher-->
+	<div class="switcher-wrapper">
+		<div class="switcher-btn"> <i class='bx bx-cog bx-spin'></i>
+		</div>
+		<div class="switcher-body">
+			<div class="d-flex align-items-center">
+				<h5 class="mb-0 text-uppercase">Theme Customizer</h5>
+				<button type="button" class="btn-close ms-auto close-switcher" aria-label="Close"></button>
+			</div>
+			<hr/>
+			<h6 class="mb-0">Theme Styles</h6>
+			<hr/>
+			<div class="d-flex align-items-center justify-content-between">
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="flexRadioDefault" id="lightmode" checked>
+					<label class="form-check-label" for="lightmode">Light</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="flexRadioDefault" id="darkmode">
+					<label class="form-check-label" for="darkmode">Dark</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="flexRadioDefault" id="semidark">
+					<label class="form-check-label" for="semidark">Semi Dark</label>
+				</div>
+			</div>
+			<hr/>
+			<div class="form-check">
+				<input class="form-check-input" type="radio" id="minimaltheme" name="flexRadioDefault">
+				<label class="form-check-label" for="minimaltheme">Minimal Theme</label>
+			</div>
+			<hr/>
+			<h6 class="mb-0">Header Colors</h6>
+			<hr/>
+			<div class="header-colors-indigators">
+				<div class="row row-cols-auto g-3">
+					<div class="col">
+						<div class="indigator headercolor1" id="headercolor1"></div>
+					</div>
+					<div class="col">
+						<div class="indigator headercolor2" id="headercolor2"></div>
+					</div>
+					<div class="col">
+						<div class="indigator headercolor3" id="headercolor3"></div>
+					</div>
+					<div class="col">
+						<div class="indigator headercolor4" id="headercolor4"></div>
+					</div>
+					<div class="col">
+						<div class="indigator headercolor5" id="headercolor5"></div>
+					</div>
+					<div class="col">
+						<div class="indigator headercolor6" id="headercolor6"></div>
+					</div>
+					<div class="col">
+						<div class="indigator headercolor7" id="headercolor7"></div>
+					</div>
+					<div class="col">
+						<div class="indigator headercolor8" id="headercolor8"></div>
+					</div>
+				</div>
+			</div>
+			<hr/>
+			<h6 class="mb-0">Sidebar Colors</h6>
+			<hr/>
+			<div class="header-colors-indigators">
+				<div class="row row-cols-auto g-3">
+					<div class="col">
+						<div class="indigator sidebarcolor1" id="sidebarcolor1"></div>
+					</div>
+					<div class="col">
+						<div class="indigator sidebarcolor2" id="sidebarcolor2"></div>
+					</div>
+					<div class="col">
+						<div class="indigator sidebarcolor3" id="sidebarcolor3"></div>
+					</div>
+					<div class="col">
+						<div class="indigator sidebarcolor4" id="sidebarcolor4"></div>
+					</div>
+					<div class="col">
+						<div class="indigator sidebarcolor5" id="sidebarcolor5"></div>
+					</div>
+					<div class="col">
+						<div class="indigator sidebarcolor6" id="sidebarcolor6"></div>
+					</div>
+					<div class="col">
+						<div class="indigator sidebarcolor7" id="sidebarcolor7"></div>
+					</div>
+					<div class="col">
+						<div class="indigator sidebarcolor8" id="sidebarcolor8"></div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
-	<!-- [ Pre-loader ] End -->
-	<!-- [ navigation menu ] start -->
-	@include('admin.body.sidebar')
-	<!-- [ navigation menu ] end -->
-
-	
-
-	<!-- [ Header ] start -->
-	@include('admin.body.header')
-	<!-- [ Header ] end -->
-	
-
-	<!-- [ chat user list ] start -->
-	<section class="header-user-list">
-		<a href="#!" class="h-close-text"><i class="feather icon-x"></i></a>
-		<ul class="nav nav-tabs" id="chatTab" role="tablist">
-			<li class="nav-item">
-				<a class="nav-link active text-uppercase" id="chat-tab" data-bs-toggle="tab" href="#chat" role="tab"
-					aria-controls="chat" aria-selected="true"><i class="feather icon-message-circle me-2"></i>Chat</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link text-uppercase" id="user-tab" data-bs-toggle="tab" href="#user" role="tab"
-					aria-controls="user" aria-selected="false"><i class="feather icon-users me-2"></i>User</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link text-uppercase" id="setting-tab" data-bs-toggle="tab" href="#setting" role="tab"
-					aria-controls="setting" aria-selected="false"><i class="feather icon-settings me-2"></i>Setting</a>
-			</li>
-		</ul>
-		<div class="tab-content" id="chatTabContent">
-			<div class="tab-pane fade show active" id="chat" role="tabpanel" aria-labelledby="chat-tab">
-				<div class="h-list-header">
-					<div class="input-group">
-						<input type="text" id="search-friends" class="form-control" placeholder="Search Friend . . .">
-					</div>
-				</div>
-				<div class="h-list-body">
-					<div class="main-friend-cont scroll-div">
-						<div class="main-friend-list">
-							<div class="d-flex userlist-box" data-id="1" data-status="online"
-								data-username="Josephin Doe">
-								<a class="media-left" href="#!"><img class="media-object img-radius"
-										src="assets/images/user/avatar-1.jpg" alt="Profile Image ">
-									<div class="live-status">3</div>
-								</a>
-								<div class="flex-grow-1">
-									<h6 class="chat-header">Josephin Doe<small class="d-block text-c-green">Typing . .
-										</small></h6>
-								</div>
-							</div>
-							<div class="media userlist-box" data-id="2" data-status="online" data-username="Lary Doe">
-								<a class="media-left" href="#!"><img class="media-object img-radius"
-										src="assets/images/user/avatar-2.jpg" alt="Profile Image">
-									<div class="live-status">1</div>
-								</a>
-								<div class="media-body">
-									<h6 class="chat-header">Lary Doe<small class="d-block text-c-green">online</small>
-									</h6>
-								</div>
-							</div>
-							<div class="media userlist-box" data-id="3" data-status="online" data-username="Alice">
-								<a class="media-left" href="#!"><img class="media-object img-radius"
-										src="assets/images/user/avatar-3.jpg" alt="Profile Image"></a>
-								<div class="media-body">
-									<h6 class="chat-header">Alice<small class="d-block text-c-green">online</small></h6>
-								</div>
-							</div>
-							<div class="media userlist-box" data-id="4" data-status="offline" data-username="Alia">
-								<a class="media-left" href="#!"><img class="media-object img-radius"
-										src="assets/images/user/avatar-1.jpg" alt="Profile Image">
-									<div class="live-status">1</div>
-								</a>
-								<div class="media-body">
-									<h6 class="chat-header">Alia<small class="d-block text-muted">10 min ago</small>
-									</h6>
-								</div>
-							</div>
-							<div class="media userlist-box" data-id="5" data-status="offline" data-username="Suzen">
-								<a class="media-left" href="#!"><img class="media-object img-radius"
-										src="assets/images/user/avatar-4.jpg" alt="Profile Image"></a>
-								<div class="media-body">
-									<h6 class="chat-header">Suzen<small class="d-block text-muted">15 min ago</small>
-									</h6>
-								</div>
-							</div>
-							<div class="media userlist-box" data-id="1" data-status="online"
-								data-username="Josephin Doe">
-								<a class="media-left" href="#!"><img class="media-object img-radius"
-										src="assets/images/user/avatar-1.jpg" alt="Profile Image ">
-									<div class="live-status">3</div>
-								</a>
-								<div class="media-body">
-									<h6 class="chat-header">Josephin Doe<small class="d-block text-c-green">Typing . .
-										</small></h6>
-								</div>
-							</div>
-							<div class="media userlist-box" data-id="2" data-status="online" data-username="Lary Doe">
-								<a class="media-left" href="#!"><img class="media-object img-radius"
-										src="assets/images/user/avatar-2.jpg" alt="Profile Image">
-									<div class="live-status">1</div>
-								</a>
-								<div class="media-body">
-									<h6 class="chat-header">Lary Doe<small class="d-block text-c-green">online</small>
-									</h6>
-								</div>
-							</div>
-							<div class="media userlist-box" data-id="3" data-status="online" data-username="Alice">
-								<a class="media-left" href="#!"><img class="media-object img-radius"
-										src="assets/images/user/avatar-3.jpg" alt="Profile Image"></a>
-								<div class="media-body">
-									<h6 class="chat-header">Alice<small class="d-block text-c-green">online</small></h6>
-								</div>
-							</div>
-							<div class="media userlist-box" data-id="4" data-status="offline" data-username="Alia">
-								<a class="media-left" href="#!"><img class="media-object img-radius"
-										src="assets/images/user/avatar-1.jpg" alt="Profile Image">
-									<div class="live-status">1</div>
-								</a>
-								<div class="media-body">
-									<h6 class="chat-header">Alia<small class="d-block text-muted">10 min ago</small>
-									</h6>
-								</div>
-							</div>
-							<div class="media userlist-box" data-id="5" data-status="offline" data-username="Suzen">
-								<a class="media-left" href="#!"><img class="media-object img-radius"
-										src="assets/images/user/avatar-4.jpg" alt="Profile Image"></a>
-								<div class="media-body">
-									<h6 class="chat-header">Suzen<small class="d-block text-muted">15 min ago</small>
-									</h6>
-								</div>
-							</div>
-							<div class="media userlist-box" data-id="1" data-status="online"
-								data-username="Josephin Doe">
-								<a class="media-left" href="#!"><img class="media-object img-radius"
-										src="assets/images/user/avatar-1.jpg" alt="Profile Image ">
-									<div class="live-status">3</div>
-								</a>
-								<div class="media-body">
-									<h6 class="chat-header">Josephin Doe<small class="d-block text-c-green">Typing . .
-										</small></h6>
-								</div>
-							</div>
-							<div class="media userlist-box" data-id="2" data-status="online" data-username="Lary Doe">
-								<a class="media-left" href="#!"><img class="media-object img-radius"
-										src="assets/images/user/avatar-2.jpg" alt="Profile Image">
-									<div class="live-status">1</div>
-								</a>
-								<div class="media-body">
-									<h6 class="chat-header">Lary Doe<small class="d-block text-c-green">online</small>
-									</h6>
-								</div>
-							</div>
-							<div class="media userlist-box" data-id="3" data-status="online" data-username="Alice">
-								<a class="media-left" href="#!"><img class="media-object img-radius"
-										src="assets/images/user/avatar-3.jpg" alt="Profile Image"></a>
-								<div class="media-body">
-									<h6 class="chat-header">Alice<small class="d-block text-c-green">online</small></h6>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="tab-pane fade" id="user" role="tabpanel" aria-labelledby="user-tab">
-				<div class="h-list-body">
-					<div class="main-friend-cont scroll-div">
-						<div class="main-friend-list">
-							<div class="media px-3 d-flex align-items-center mt-3">
-								<a class="media-left m-r-15" href="#!">
-									<div
-										class="hei-50 wid-50 bg-primary img-radius d-flex text-white f-22 align-items-center justify-content-center">
-										<i class="icon feather icon-users"></i>
-									</div>
-								</a>
-								<div class="media-body">
-									<p class="chat-header f-w-600 mb-0">New Group</p>
-								</div>
-							</div>
-							<div class="media p-3 d-flex align-items-center">
-								<a class="media-left m-r-15" href="#!">
-									<div
-										class="hei-50 wid-50 bg-primary img-radius d-flex text-white f-22 align-items-center justify-content-center">
-										<i class="icon feather icon-user-plus"></i>
-									</div>
-								</a>
-								<div class="media-body">
-									<p class="chat-header f-w-600 mb-0">New Contact</p>
-								</div>
-							</div>
-							<div class="media userlist-box" data-id="1" data-status="online"
-								data-username="Josephin Doe">
-								<a class="media-left" href="#!"><img class="media-object img-radius"
-										src="assets/images/user/avatar-1.jpg" alt="Profile Image "></a>
-								<div class="media-body">
-									<p class="chat-header">Josephin Doe<small class="d-block">i am not what happened .
-											.</small></p>
-								</div>
-							</div>
-							<div class="media userlist-box" data-id="2" data-status="online" data-username="Lary Doe">
-								<a class="media-left" href="#!"><img class="media-object img-radius"
-										src="assets/images/user/avatar-2.jpg" alt="Profile Image"></a>
-								<div class="media-body">
-									<h6 class="chat-header">Lary Doe<small class="d-block">Avalable</small></h6>
-								</div>
-							</div>
-							<div class="media userlist-box" data-id="3" data-status="online" data-username="Alice">
-								<a class="media-left" href="#!"><img class="media-object img-radius"
-										src="assets/images/user/avatar-3.jpg" alt="Profile Image"></a>
-								<div class="media-body">
-									<h6 class="chat-header">Alice<small class="d-block">hear using Dasho</small></h6>
-								</div>
-							</div>
-							<div class="media userlist-box" data-id="4" data-status="offline" data-username="Alia">
-								<a class="media-left" href="#!">
-									<div
-										class="hei-50 wid-50 img-radius bg-success d-flex text-white f-22 align-items-center justify-content-center">
-										A</div>
-								</a>
-								<div class="media-body">
-									<h6 class="chat-header">Alia<small class="d-block text-muted">Avalable</small></h6>
-								</div>
-							</div>
-							<div class="media userlist-box" data-id="5" data-status="offline" data-username="Suzen">
-								<a class="media-left" href="#!"><img class="media-object img-radius"
-										src="assets/images/user/avatar-4.jpg" alt="Profile Image"></a>
-								<div class="media-body">
-									<h6 class="chat-header">Suzen<small class="d-block text-muted">Avalable</small></h6>
-								</div>
-							</div>
-							<div class="media userlist-box" data-id="1" data-status="online"
-								data-username="Josephin Doe">
-								<a class="media-left" href="#!">
-									<div
-										class="hei-50 wid-50 bg-danger img-radius d-flex text-white f-22 align-items-center justify-content-center">
-										JD</div>
-								</a>
-								<div class="media-body">
-									<h6 class="chat-header">Josephin Doe<small class="d-block text-muted">Don't send me
-											image</small></h6>
-								</div>
-							</div>
-							<div class="media userlist-box" data-id="2" data-status="online" data-username="Lary Doe">
-								<a class="media-left" href="#!"><img class="media-object img-radius"
-										src="assets/images/user/avatar-2.jpg" alt="Profile Image"></a>
-								<div class="media-body">
-									<h6 class="chat-header">Lary Doe<small class="d-block text-muted">not send free
-											msg</small></h6>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="tab-pane fade" id="setting" role="tabpanel" aria-labelledby="setting-tab">
-				<div class="p-4 main-friend-cont scroll-div">
-					<h6 class="mt-2"><i class="feather icon-monitor me-2"></i>Desktop settings</h6>
-					<hr>
-					<div class="form-group mb-0">
-						<div class="switch switch-primary d-inline m-r-10">
-							<input type="checkbox" id="cn-p-1" checked>
-							<label for="cn-p-1" class="cr switch-alignment"></label>
-						</div>
-						<label class="f-w-600">Allow desktop notification</label>
-					</div>
-					<p class="text-muted ms-5">You get latest content at a time when data will updated</p>
-					<div class="form-group mb-0">
-						<div class="switch switch-primary d-inline m-r-10">
-							<input type="checkbox" id="cn-p-5">
-							<label for="cn-p-5" class="cr switch-alignment"></label>
-						</div>
-						<label class="f-w-600">Store Cookie</label>
-					</div>
-					<h6 class="mb-0 mt-5"><i class="feather icon-layout me-2"></i>Application settings</h6>
-					<hr>
-					<div class="form-group mb-0">
-						<div class="switch switch-primary d-inline m-r-10">
-							<input type="checkbox" id="cn-p-3" checked>
-							<label for="cn-p-3" class="cr switch-alignment"></label>
-						</div>
-						<label class="f-w-600">Backup Storage</label>
-					</div>
-					<p class="text-muted mb-0 ms-5">Automaticaly take backup as par schedule</p>
-					<div class="form-group mb-4">
-						<div class="switch switch-primary d-inline m-r-10">
-							<input type="checkbox" id="cn-p-4" checked>
-							<label for="cn-p-4" class="cr switch-alignment"></label>
-						</div>
-						<label class="f-w-600">Allow guest to print file</label>
-					</div>
-					<h6 class="mb-0 mt-5"><i class="feather icon-globe me-2"></i>System settings</h6>
-					<hr>
-					<div class="form-group mb-0">
-						<div class="switch switch-primary d-inline m-r-10">
-							<input type="checkbox" id="cn-p-2">
-							<label for="cn-p-2" class="cr switch-alignment"></label>
-						</div>
-						<label class="f-w-600">View other user chat</label>
-					</div>
-					<p class="text-muted ms-5">Allow to show public user message</p>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- [ chat user list ] end -->
-
-	<!-- [ chat message ] start -->
-	<section class="header-chat">
-		<div class="h-list-header">
-			<h6>Josephin Doe</h6>
-			<a href="#!" class="h-back-user-list"><i class="feather icon-chevron-left"></i></a>
-		</div>
-		<div class="h-list-body">
-			<div class="main-chat-cont scroll-div">
-				<div class="main-friend-chat">
-					<div class="d-flex chat-messages">
-						<a class="media-left photo-table" href="#!"><img
-								class="media-object img-radius img-radius m-t-5" src="assets/images/user/avatar-2.jpg"
-								alt="Profile Image"></a>
-						<div class="flex-grow-1 chat-menu-content">
-							<div class="">
-								<p class="chat-cont">hello tell me something</p>
-								<p class="chat-cont">about yourself?</p>
-							</div>
-							<p class="chat-time">8:20 a.m.</p>
-						</div>
-					</div>
-					<div class="d-flex chat-messages">
-						<div class="flex-grow-1 chat-menu-reply">
-							<div class="">
-								<p class="chat-cont">Ohh! very nice</p>
-							</div>
-							<p class="chat-time">8:22 a.m.</p>
-						</div>
-						<a class="media-right photo-table" href="#!"><img
-								class="media-object img-radius img-radius m-t-5" src="assets/images/user/avatar-1.jpg"
-								alt="Profile Image"></a>
-					</div>
-					<div class="d-flex chat-messages">
-						<a class="media-left photo-table" href="#!"><img
-								class="media-object img-radius img-radius m-t-5" src="assets/images/user/avatar-2.jpg"
-								alt="Profile Image"></a>
-						<div class="flex-grow-1 chat-menu-content">
-							<div class="">
-								<p class="chat-cont">can you help me?</p>
-							</div>
-							<p class="chat-time">8:20 a.m.</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="h-list-footer">
-			<div class="input-group">
-				<input type="file" class="chat-attach" style="display:none">
-				<a href="#!" class="input-group-prepend btn btn-success btn-attach">
-					<i class="feather icon-paperclip"></i>
-				</a>
-				<input type="text" name="h-chat-text" class="form-control h-send-chat" placeholder="Write hear . . ">
-				<button type="submit" class="input-group-append btn-send btn btn-primary">
-					<i class="feather icon-message-circle"></i>
-				</button>
-			</div>
-		</div>
-	</section>
-	<!-- [ chat message ] end -->
-
-<!-- [ Main Content ] start -->
-@yield('admin')
-
-<!-- [ Main Content ] end -->
-
-
-
-<!-- Required Js -->
-<script src=" {{asset('backend/assets/js/vendor-all.min.js')}} "></script>
-<script src=" {{asset('backend/assets/plugins/bootstrap/js/popper.min.js')}} "></script>
-<script src=" {{asset('backend/assets/plugins/bootstrap/js/bootstrap.bundle.min.js')}} "></script>
-<script src=" {{asset('backend/assets/js/pcoded.min.js')}} "></script>
-<script src=" {{asset('backend/assets/js/menu-setting.js')}} "></script>
-
-<!-- am chart js -->
-<script src=" {{asset('backend/assets/plugins/chart-am4/js/core.js')}} "></script>
-<script src=" {{asset('backend/assets/plugins/chart-am4/js/charts.js')}} "></script>
-<script src=" {{asset('backend/assets/plugins/chart-am4/js/animated.js')}} "></script>
-<script src=" {{asset('backend/assets/plugins/chart-am4/js/maps.js')}} "></script>
-<script src=" {{asset('backend/assets/plugins/chart-am4/js/worldLow.js')}} "></script>
-<script src=" {{asset('backend/assets/plugins/chart-am4/js/continentsLow.js')}} "></script>
-
-
-
-<!-- dashboard-custom js -->
-<script src=" {{asset('backend/assets/js/pages/dashboard-analytics.js')}} "></script>
-
-
-<div class="footer-fab">
-    <div class="b-bg">
-        <i class="fas fa-question"></i>
-    </div>
-    <div class="fab-hover">
-        <ul class="list-unstyled">
-            <li><a href="../doc/index-bc-package.html" target="_blank" data-text="UI Kit" class="btn btn-icon btn-rounded btn-info m-0"><i class="feather icon-layers"></i></a></li>
-            <li><a href="../doc/index.html" target="_blank" data-text="Document" class="btn btn-icon btn-rounded btn-primary m-0"><i class="feather icon feather icon-book"></i></a></li>
-        </ul>
-    </div>
-</div>
-
-
+	<!--end switcher-->
+	<!-- Bootstrap JS -->
+	<script src=" {{asset('back/assets/js/bootstrap.bundle.min.js')}} "></script>
+	<!--plugins-->
+	<script src=" {{asset('back/assets/js/jquery.min.js')}} "></script>
+	<script src=" {{asset('back/assets/plugins/simplebar/js/simplebar.min.js')}} "></script>
+	<script src=" {{asset('back/assets/plugins/metismenu/js/metisMenu.min.js')}} "></script>
+	<script src=" {{asset('back/assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js')}} "></script>
+	<script src=" {{asset('back/assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js')}} "></script>
+    <script src=" {{asset('back/assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js')}} "></script>
+	<script src=" {{asset('back/assets/plugins/chartjs/js/chart.js')}} "></script>
+	<script src=" {{asset('back/assets/js/index.js')}} "></script>
+	<!--app JS-->
+	<script src=" {{asset('back/assets/js/app.js')}} "></script>
+	<script>
+		new PerfectScrollbar(".app-container")
+	</script>
 </body>
 
 </html>
