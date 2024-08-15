@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\projet;
 use App\Models\video;
 use Carbon\Carbon;
 use FFMpeg\FFMpeg;
@@ -40,6 +41,24 @@ class VideosController extends Controller
             ]);
           
             return redirect()->back();
+    }
+
+    public function AddProjet(){
+        return view('backend.projet.add_video');
+    }
+
+    public function StoreProjet(Request $request){
+        projet::insert([
+                
+            'url_video'=>$request->lien,
+            'evenement'=>$request->evenement,
+            'auteur'=>$request->auteur,
+
+            'created_at'=>Carbon::now(),
+
+        ]);
+      
+        return redirect()->back();
     }
 
 

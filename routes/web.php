@@ -30,6 +30,11 @@ Route::middleware(['auth','role:admin'])->group(function(){
         Route::get('/add/video', 'AddVideo')->name('add.video');
         Route::post('/store/video', 'StoreVideo')->name('store.video');
 
+
+
+        Route::get('/add/projet', 'AddProjet')->name('add.projet');
+        Route::post('/store/projet', 'StoreProjet')->name('store.projet');
+
      
      });
 

@@ -20,7 +20,7 @@
             
         </li>
         
-        <li class="menu-label">Videos</li>
+       
         <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class='bx bx-cart'></i>
@@ -35,6 +35,25 @@
                
             </ul>
         </li>
+
+
+
+        <li class="menu-label">Videos Realiser</li>
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class='bx bx-cart'></i>
+                </div>
+                <div class="menu-title">Vidéo Réaliser</div>
+            </a>
+            <ul>
+                <li> <a href=" {{route('add.projet')}} "><i class='bx bx-radio-circle'></i>Ajouter Video</a>
+                </li> 
+                <li> <a href="ecommerce-products-details.html"><i class='bx bx-radio-circle'></i>Liste Vidéo</a>
+                </li>
+               
+            </ul>
+        </li>
+
         {{-- <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class='bx bx-cart'></i>
